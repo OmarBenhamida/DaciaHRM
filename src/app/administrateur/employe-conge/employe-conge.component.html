@@ -1,0 +1,114 @@
+<!-- Default form register -->
+
+<div class="row">
+    <div class="col-4">
+      <br><br><br>
+      <form ngForm="form" class="text-center ">
+  
+        <p class="h4 mb-4">Gestion des Congés Des Employés</p>
+        <div class="form-row mb-4">
+          <div class="col">
+            <!-- First name -->
+          <select class="browser-default custom-select" [(ngModel)]="serviceEC.employesconge.idemploye" name="idemploye">
+            <option selected>Employé</option>
+            <option *ngFor="let items of uow.employes" [value]="items.id">{{ items.Nom }} {{ items.Prenom }}</option>
+            
+          </select>
+          
+</div>
+          <div class="col">
+            <!-- First name -->
+            <select class="browser-default custom-select" [(ngModel)]="serviceEC.employesconge.idconge" name="idconge">
+                <option selected>Contrat</option>
+                <option *ngFor="let itemss of serviceC.conges" [value]="itemss.id">{{ itemss.id }} </option>
+                
+              </select>
+
+
+          </div>
+
+          
+  
+        </div>
+  
+   
+        <div class="form-row mb-4">
+            <div class="col">
+              <!-- First name -->
+              <label><b>Etat de la demande  </b></label>
+              <input type="text" [(ngModel)]="serviceEC.employesconge.etat" name="etat" class="form-control"
+                [value]="etat">
+            </div>
+       
+          </div>
+  
+      
+  
+  
+        <div class="form-row mb-4">
+          <div class="col">
+            <button mdbBtn color="info" block="true" class="my-4" (click)="submit()" type="submit">Ajouter</button>
+          </div>
+          <div class="col">
+            <button mdbBtn color="success" block="true" class="my-4" (click)="modifier()" type="submit">Editer</button>
+          </div>
+  
+        </div>
+  
+        <div class="form-row mb-4">
+  
+  
+          <div class="col">
+            <button mdbBtn color="warning" block="true" class="my-4" (click)="search(serviceEC.employesconge.idemploye)">Recherche
+              ID</button>
+          </div>
+  
+          <div class="col">
+            <button mdbBtn color="danger" block="true" class="my-4" (click)="supprimer()" type="submit">Supprimer</button>
+          </div>
+  
+      
+  
+        </div>
+        
+  
+  
+  
+  
+      </form>
+  
+  
+    </div>
+  
+  
+    <div class="col-8">
+      <br> <br>
+  
+      <table class="table table-striped " >
+        <th class="table-active" scope="col">ID</th>
+        <th class="table-active" scope="col">ID_Employe</th>
+        <th class="table-active" scope="col">Congé</th>
+
+   
+        <th class="table-active" scope="col">Etat</th>
+
+
+
+        <!-- <th class="table-active" scope="col">Enfant</th> -->
+        <tr class="table-striped" *ngFor="let item of serviceEC.employesconges"   (click)="filldataEC(item)">
+          <td>{{item.id}}</td>
+          <td>{{item.idemploye}}</td>
+          <td>{{item.idconge}}</td>
+          <td >{{item.etat}}</td>
+          
+
+          <!-- <td>{{item.nbrEnfant}}</td> -->
+          
+  
+        </tr>
+  
+      </table>
+  
+  
+    </div>
+  </div>

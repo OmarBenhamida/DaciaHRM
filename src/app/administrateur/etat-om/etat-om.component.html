@@ -1,0 +1,58 @@
+<div id="printer">
+  <div class="bg-img">
+    <div class="row">
+    <div class="col-2"></div>
+
+    <div class="col-8">
+      <br><br>
+      <img src="../../../../assets/img/logo.png" width="50%" >
+
+      <br><br>
+      <br><br>
+      <br><br>
+      <div style="text-align: center">
+        <h1><b>Objet : Ordre De Mission </b></h1>
+      </div>
+
+
+      <br><br>
+      <br><br>
+
+      
+
+
+        <p><b>
+
+            Par la présente, l'entreprise Dacia Maroc confie à Mr/Mme {{o.employe.Nom}} {{o.employe.Prenom}} {{o.employe.adresse}}  la mission de {{o.Libelle}}. Elle aura lieu du {{o.datedebut}} au {{o.datefin}} .
+<br>
+            Le déplacement du salarié aura lieu entre son (lieu de travail/lieu de résidence familial) et le lieu de sa mission, situé au {{o.lieu}}.
+            <br>
+            Pour son voyage aller-retour, le salarié utilisera les moyens de transports suivants (énumérer ici les moyens de transports utilisés : avion, taxi, train, voiture de location, etc. Préciser si possible les horaires des trajets, comme les heures de départ et d'arrivée d'un vol par exemple).
+            
+            
+            Signature de l'employeur ou de la personne ayant délégation de signature.</b>
+        </p>
+    
+        <div class="text-right"> Fait à Casablanca, le {{dt.toLocaleDateString()}}.</div>
+
+        <br>
+        <div class="text-right"> La Direction </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <footer style="position: center;">
+          <br>
+          <b>Renault Tanger Méditerranée, Zone Franche de Melloussa, Tanger, Maroc <br>Tel : 08 000 90 110 Email :Daciamaroc@Gmail.com Fax:+212539653214</b>
+        </footer>
+
+
+
+
+
+    
+
+  </div>    <div class="col-2"></div>
+</div>
+</div>
+</div>
+<div class="actions">
+  <button class="export-button btn aqua-gradient"  (click)="pdfDownload()">Imprimer</button>
+</div>

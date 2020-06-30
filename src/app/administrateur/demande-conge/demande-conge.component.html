@@ -1,0 +1,140 @@
+<!-- Default form register -->
+<!-- <app-employe-demandeconge></app-employe-demandeconge> -->
+<div class="row">
+    <div class="col-4">
+      <br><br><br>
+      <form ngForm="form" class="text-center ">
+  
+        <p class="h4 mb-4">Demandes des Conges</p>
+        <div class="form-row mb-4">
+          <div class="col">
+            <!-- First name -->
+  
+            <input type="text" [(ngModel)]="service.demandeconge.id" name="id" class="form-control" [value]="id"
+              placeholder="Id">
+          </div>
+          <div class="col">
+            <!-- First name -->
+            <select class="browser-default custom-select" [(ngModel)]="service.demandeconge.type" name="type">
+              <option selected>Type de demandeconge</option>
+              <option value="Annuel">Annuel</option>
+              <option value="Maladie">Maladie</option>
+              <option value="Mariage">Mariage</option>
+              <option value="Déces">Déces</option>
+  
+  
+            </select>
+  
+  
+          </div>
+  
+  
+  
+        </div>
+  
+  
+        <div class="form-row mb-4">
+          <div class="col">
+            <!-- First name -->
+            <label><b>Date Debut </b></label>
+            <input type="date" [(ngModel)]="service.demandeconge.datedebut" name="datedebut" class="form-control"
+              [value]="datedebut">
+          </div>
+          <div class="col">
+            <!-- Last name -->
+            <label><b>Date Fin Mission </b></label>
+            <input type="date" [(ngModel)]="service.demandeconge.dateFin" name="dateFin" class="form-control" [value]="dateFin">
+          </div>
+        </div>
+  
+  
+        <div class="col">
+          <!-- First name -->
+          <select class="browser-default custom-select" [(ngModel)]="service.demandeconge.idemploye" name="idemploye" >
+            <option selected>Employé</option>
+            <option *ngFor="let items of uow.employes" [value]="items.id">{{ items.Nom }} {{ items.Prenom }}</option>
+            
+          </select>
+  
+  
+        </div>
+
+        <div class="col">
+          <!-- First name -->
+          <select class="browser-default custom-select" [(ngModel)]="service.demandeconge.etat" name="etat">
+            <option selected>Etat</option>
+            <option value="Approuvé">Approuvé</option>
+            <option value="En Attente">En Attente</option>
+            <option value="Refusé">Refusé</option>
+
+
+          </select>
+
+
+        </div>
+  
+        <div class="form-row mb-4">
+          <div class="col">
+            <button  mdbBtn color="info" block="true" class="my-4" (click)="submit()" type="submit">Ajouter</button>
+          </div>
+          <div class="col">
+            <button mdbBtn color="success" block="true" class="my-4" (click)="modifier()" type="submit">Editer</button>
+          </div>
+  
+        </div>
+  
+        <div class="form-row mb-4">
+  
+  
+          
+  
+          <div class="col">
+            <button mdbBtn color="danger" block="true" class="my-4" (click)="supprimer()" type="submit">Supprimer</button>
+          </div>
+          <div class="col">
+            <button mdbBtn color="secondary" block="true" class="my-4"  type="button">Filtrer</button>
+          </div>
+  
+  
+  
+        </div>
+        <div class="form-row mb-4">
+  
+  
+            <div class="col">
+              <button mdbBtn color="warning" block="true" class="my-4" (click)="search(service.demandeconge.id)">Recherche
+                ID</button>
+            </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-8">
+      <br> <br>
+  
+      <table class="table table-striped ">
+        <th class="table-active" scope="col">ID</th>
+        <th class="table-active" scope="col">Type Congé</th>
+        <th class="table-active" scope="col">Date Debut</th>
+        <th class="table-active" scope="col">Date fin</th>
+        <th class="table-active" scope="col">Nombre Jour</th>
+        <th class="table-active" scope="col">Etat</th>
+
+        <th class="table-active" scope="col">employe</th>
+        <!-- <th class="table-active" scope="col">Enfant</th> -->
+        <tr class="table-striped" *ngFor="let item of service.demandeconges " (click)="filldata(item)">
+          <td>{{item.id}}</td>
+          <td>{{item.type}}</td>
+          <td>{{item.datedebut}}</td>
+          <td>{{item.dateFin}}</td>
+          <td>{{dateDeff(item.datedebut, item.dateFin)}}</td>
+          <td>{{item.etat}}</td>
+
+          <td>{{item.employe.Nom}} {{item.employe.Prenom}}</td>
+          <!-- <td>{{item.nbrEnfant}}</td> -->
+        </tr>
+      </table>
+  
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,193 @@
+<!--Navbar-->
+<ngx-spinner bdColor="rgba(51,51,51,0.8)"
+size="large"
+color="#fff"
+type="ball-scale-multiple"
+>
+<p style="font-size: 20px; color: white">Chargement en cours...</p>></ngx-spinner>
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-lighten" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" href="#"><img src="https://1.bp.blogspot.com/-wYcnPNUUqdc/Xs6Eu2YyXgI/AAAAAAABmEg/h6ViqohzXscju5OhcRVHwi9erCPFu8AzQCLcBGAsYHQ/s400/logo.png" height="50" width="150"></a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+   
+    <!-- Links -->
+
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+   
+      <li class="nav-item">
+        <a class="nav-link"><i class="fas fa-user-shield"></i> &nbsp;
+          <div class="btn-group" mdbDropdown>
+            
+            <ng-container *ngIf="service.user!==null; else elseTemplate">
+              <div class="nav-item">
+                  {{service.user.Nom}}     {{service.user.Prenom}}
+              </div>
+              &nbsp;   &nbsp;
+              <div class="nav-item" (click)="logout()">
+                <b>Se Deconnecter</b>
+            </div>
+            </ng-container>
+            <ng-template #elseTemplate>
+              <div class="nav-item" [routerLink]="['/login/auth']">
+                Se Connecter
+              </div>
+            </ng-template>
+            
+          
+          </div>
+        </a>
+      </li>
+    </ul>
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
+
+<router-outlet></router-outlet>
+
+<!-- Footer -->
+<footer class="page-footer font-small " style="background-color: #2f4052;">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Footer links -->
+    <div class="row text-center text-md-left pt-3 pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold" style="color:  rgb(0, 225, 255);">Dacia Maroc</h6>
+        <p class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;">Dacia bénéficie de l’expérience industrielle et de l’ingénierie du Groupe Renault pour concevoir et fabriquer des modèles robustes et fiables. 
+
+          Dacia garantit tous ses modèles 3 ans / 100.000 km au premier des 2 termes atteint.
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="w-100 clearfix d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold" style="color: rgb(0, 225, 255);">Modeles</h6>
+        <p>
+          <a class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;" href="#!">Logane</a>
+        </p>
+        <p>
+          <a class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;" href="#!">Sandero</a>
+        </p>
+        <p>
+          <a class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;" href="#!">Duster</a>
+        </p>
+        <p>
+          <a  class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;" href="#!">Dukker</a>
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="w-100 clearfix d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold" style="color:  rgb(0, 225, 255);">Useful links</h6>
+        <p>
+          <a  class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;" href="#!">Your Account</a>
+        </p>
+        <p>
+          <a class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;"  href="#!">Become an Affiliate</a>
+        </p>
+        <p>
+          <a  class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;" href="#!">Shipping Rates</a>
+        </p>
+        <p>
+          <a  class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;" href="#!">Help</a>
+        </p>
+      </div>
+
+      <!-- Grid column -->
+      <hr class="w-100 clearfix d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold" style="color:  rgb(0, 225, 255);">Contact</h6>
+        <p class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;" >
+          <mdb-icon fas icon="home" class="mr-3"></mdb-icon>Sidi Abdellah 15 MOHAMMEDIA
+        </p>
+        <p class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;">
+          <mdb-icon fas icon="envelope" class="mr-3"></mdb-icon> Dacia@Renault.com
+        </p>
+        <p class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;">
+          <mdb-icon fas icon="phone" class="mr-3"></mdb-icon> + 212 234 567 88
+        </p>
+        <p class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;">
+          <mdb-icon fas icon="print" class="mr-3"></mdb-icon> + 212 234 567 88
+        </p>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Footer links -->
+
+    <hr>
+
+    <!-- Grid row -->
+    <div class="row d-flex align-items-center">
+
+      <!-- Grid column -->
+      <div class="col-md-7 col-lg-8">
+
+        <!--Copyright-->
+        <p class="text-center text-md-left"  style="color: aliceblue;">© 2020 Copyright:
+          <a href="#">
+            <strong class="text-uppercase mb-4 font-weight-bold" style="color: aliceblue;" >Omar Benhamida - Zineb Lidya</strong>
+          </a>
+        </p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-5 col-lg-4 ml-lg-0">
+
+        <!-- Social buttons -->
+        <div class="text-center text-md-right">
+          <ul class="list-unstyled list-inline">
+            <li class="list-inline-item">
+              <a mdbBtn floating="true" size="sm" style="color:  rgb(0, 225, 255);" mdbWavesEffect>
+                <mdb-icon fab icon="facebook"></mdb-icon>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a mdbBtn floating="true" size="sm" style="color:  rgb(0, 225, 255);" mdbWavesEffect>
+                <mdb-icon fab icon="twitter"></mdb-icon>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a mdbBtn floating="true" size="sm" style="color:  rgb(0, 225, 255);" mdbWavesEffect>
+                <mdb-icon fab fab icon="google-plus"></mdb-icon>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a mdbBtn floating="true" size="sm" style="color:  rgb(0, 225, 255);" mdbWavesEffect>
+                <mdb-icon fab icon="linkedin"></mdb-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+</footer>
+<!-- Footer -->

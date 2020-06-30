@@ -1,0 +1,106 @@
+
+  
+<!-- Default form register -->
+
+<div style="  font-weight: bold;" class="bg-img">
+
+  <div class="row">
+
+    <div class="col-12">
+      <br><br><br>
+      <form ngForm="form" class="text-left ">
+
+         <p class="h4 mb-4 ">Affectation du contrat à l'employé</p> 
+        <div class="form-row mb-12">
+          <div class="col">
+            <!-- First name -->
+            <label>Employé : </label>
+            <select class="browser-default custom-select" [(ngModel)]="service.employescontrat.idemploye" name="idemploye">
+              <option selected>Employé</option>
+              <option *ngFor="let items of uow.employes" [value]="items.id">{{ items.Nom }} {{ items.Prenom }}</option>
+              
+            </select>
+
+          </div>
+          <div class="col">
+            <!-- First name -->
+            <label>Contrats : </label>
+            <select class="browser-default custom-select" [(ngModel)]="service.employescontrat.idcontrat" name="idcontrat">
+              <option selected>Contrat</option>
+              <option *ngFor="let itemss of contr.contrats" [value]="itemss.id"> {{ itemss.type }} - {{itemss.datedebut}} - {{itemss.datefin}}</option>
+              
+            </select>
+          </div>
+
+          <div class="col">
+            <!-- First name -->
+            <label><b>Date Signature:  </b></label>
+            <input type="date" [(ngModel)]="service.employescontrat.dateSignature" name="dateSignature" class="form-control"
+              [value]="dateSignature">
+          </div>
+<br><br>
+          <div class="col">
+            <button class="btn blue-gradient" block="true" (click)="submit()" type="submit"><i
+              class="far fa-plus-square"></i> Ajouter</button>
+        </div>
+        <div class="col">
+          <button class="btn dusty-grass-gradient" block="true" (click)="modifier()"
+            type="submit"><i class="fas fa-edit"></i> Editer</button>
+        </div>
+
+        <div class="col">
+          <button  class="btn purple-gradient" block="true" (click)="supprimer()"
+            type="submit"><i class="fas fa-trash"></i> Supprimer</button>
+        </div>
+
+
+        </div>
+
+      </form>
+
+
+    </div>
+  </div>
+ 
+
+
+
+
+
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <br> <br>
+
+
+      <table class="tftable" border="1">
+        <tr>
+          <th class="table-active" scope="col">ID</th>
+        <th class="table-active" scope="col">Employe</th>
+        <th class="table-active" scope="col">Formation</th>
+        <th class="table-active" scope="col">Date Signature</th>
+
+        </tr>
+        <tr class="table-striped" *ngFor="let item of t"   (click)="filldataEC(item)">
+          <td>{{item.id}}</td>
+          <td>{{item.employe.Nom}} {{item.employe.Prenom}}</td>
+          <td>{{item.contrat.type}}</td>
+          <td >{{item.dateSignature}}</td>
+          
+
+          <!-- <td>{{item.nbrEnfant}}</td> -->
+          
+  
+        </tr>
+
+
+      </table>
+
+
+    </div>
+    <div class="col-1"></div>
+
+  </div>
+
+
+</div>

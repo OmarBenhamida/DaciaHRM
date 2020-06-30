@@ -1,0 +1,167 @@
+
+
+  <div style="  font-weight: bold;" class="bg-img">
+    <div class="row">
+      <div class="col-12">
+        <br><br><br>
+        <form ngForm="form" class="text-left ">
+          <div class="row">
+            <div class="col-6">
+              <p class="h4 mb-4 text-center">Gestion des Retards</p>
+              <div class="col">
+                <input hidden type="text" [(ngModel)]="service.retard.id" name="id" class="form-control" [value]="id"
+                  placeholder="Id">
+              </div>
+  
+              <div class="form-row mb-4">
+                <div class="col">
+                  <label>Type Retard :</label>
+                  <select class="browser-default custom-select" [(ngModel)]="service.retard.type" name="type">
+                    <option selected>Type Absence</option>
+                    <option value="1">Justifié</option>
+                    <option value="0">Non Justifié</option>
+  
+  
+                  </select>
+                </div>
+  
+                <div class="col">
+                  <label><b>Date Retard </b></label>
+                  <input type="date" [(ngModel)]="service.retard.dateRetard" name="dateRetard" class="form-control"
+                    [value]="dateRetard">
+                </div>
+  
+              </div>
+  
+              <div class="form-row mb-4">
+                <div class="col">
+                  <label>Justification :</label>
+                  <input type="text" [(ngModel)]="service.retard.justification" name="justification" class="form-control"
+                    [value]="justification" placeholder="justification">
+                </div>
+                <div class="col">
+                  <!-- First name -->
+                  <label>Employé En Retard :</label>
+                  <select class="browser-default custom-select" [(ngModel)]="service.retard.idemploye" name="idemploye">
+                    <option selected>Employé</option>
+                    <option *ngFor="let items of uow.employes" [value]="items.id">{{ items.Nom }} {{ items.Prenom }}
+                    </option>
+  
+                  </select>
+  
+                </div>
+              </div>
+              <div class="form-row mb-4">
+                <div class="col">
+                  <label>Nombre d'heure :</label>
+                  <input type="text" [(ngModel)]="service.retard.nb_heure" name="nb_heure" class="form-control"
+                    [value]="nb_heure" placeholder="Nombre D'heure">
+                </div>
+              
+              </div>
+  
+  
+  
+            </div>
+          
+          <div class="col-6">
+  
+            <br><br>
+            <br>
+            <br>
+  
+            <div class="form-row mb-4">
+              <div class="col">
+                <button class="btn blue-gradient" block="true" (click)="submit()" type="submit"><i
+                    class="far fa-plus-square"></i> Ajouter</button>
+              </div>
+              <div class="col">
+                <button class="btn dusty-grass-gradient" block="true" (click)="modifier()" type="submit"><i
+                    class="fas fa-edit"></i> Modifier</button>
+              </div>
+              <div class="col">
+                <button class="btn purple-gradient" block="true" (click)="supprimer()" type="submit"><i
+                    class="fas fa-trash"></i> Supprimer</button>
+              </div>
+  
+            </div>
+  
+  
+            <div class="form-row mb-4">
+  
+  
+              <div class="col">
+                <button class="btn purple-gradient" block="true" (click)="selectionChange()" type="button"> <i
+                    class="fas fa-filter"></i> &nbsp; Filtrer</button>
+              </div>
+  
+  
+              <div class="col">
+                <button class="btn peach-gradient" block="true" (click)="RechercheParDate()"> <i
+                    class="fab fa-searchengin"></i>
+                  Date Absence</button>
+              </div>
+  
+              <div class="col">
+                <button class="btn aqua-gradient" block="true" (click)="restaurertable()"> <i class="fas fa-redo-alt"></i>
+                  &nbsp; Refresh</button>
+              </div>
+            </div>
+  
+  
+  
+        
+  
+  
+  
+          </div>
+        </div>
+  
+        </form>
+  
+  
+      </div>
+  
+  
+    </div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <br> <br>
+  
+        <label>Liste Retards : </label>
+  
+        <table class="tftable" border="1">
+          <tr>
+            <th class="table-active" scope="col">ID</th>
+            <th class="table-active" scope="col">Date Retard</th>
+            <th class="table-active" scope="col">Type</th>
+            <th class="table-active" scope="col">Nombre d'heure</th>
+            <th class="table-active" scope="col">Justification</th>
+            <th class="table-active" scope="col">Employe</th>
+          </tr>
+  
+          <tr class="table-striped" *ngFor="let item of t" (click)="filldata(item)">
+            <td>{{item.id}}</td>
+            <td>{{item.dateRetard}}</td>
+            <td>{{item.type}}</td>
+            <td>{{item.nb_heure}}</td>
+            <td>{{item.justification}}</td>
+            <td>{{item.employe.Nom}} {{item.employe.Prenom}}</td>
+  
+  
+  
+            <!-- <td>{{item.nbrEnfant}}</td> -->
+  
+  
+          </tr>
+  
+        </table>
+  
+  
+      </div>
+      <div class="col-1"></div>
+  
+    </div>
+  </div>
+  

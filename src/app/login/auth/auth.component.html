@@ -1,0 +1,65 @@
+<!-- <br> <br><br>
+    <form [formGroup]="myForm" (ngSubmit)="submit(myForm)">
+            
+
+
+        email : 
+        
+        <input type="text" formControlName="email"  placeholder="Email address" >
+        
+        passwd : 
+        
+        <input type="password" formControlName="passwd"  placeholder="mot de passe" >
+        
+        <button type="submit">Loginn</button>
+        
+        
+        </form> -->
+        <br><br><br><br>
+        <div class="row">
+        <div class="col-3"></div>
+<div class="col-6">
+        <!-- Default form login -->
+<form class="text-center border border-light p-5" [formGroup]="myForm" (ngSubmit)="submit(myForm)">
+
+    <p class="h4 mb-4">Page de connexion</p>
+
+    <!-- Email -->
+    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" formControlName="email"  placeholder="E-mail">
+
+    <!-- Password -->
+    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" formControlName="passwd" placeholder="Password">
+
+    <div class="d-flex justify-content-around">
+        <div>
+            <!-- Remember me -->
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+            </div>
+        </div>
+        <div>
+            <!-- Forgot password -->
+            <a href="">Forgot password?</a>
+        </div>
+    </div>
+
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" type="submit">Se Connecter</button>
+
+    <!-- Register -->
+    <p>Not a member?
+        <a href="">Register</a>
+    </p>
+
+    <!-- Social login -->
+    <p>or sign in with:</p>
+
+    <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
+</form></div>
+<!-- Default form login -->
+<div class="col-3"></div></div>

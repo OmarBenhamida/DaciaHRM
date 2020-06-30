@@ -1,0 +1,62 @@
+<div id="printer">
+  <div style="  font-weight: bold;" class="bg-img"> 
+
+    <div class="row">
+    <div class="col-2"></div>
+
+    <div class="col-8">
+      <br><br>
+      <img src="../../../../assets/img/logo.png" width="50%" >
+
+      <br><br>
+      <br><br>
+      <br><br>
+      <ng-container *ngIf="service.user!==null; else elseTemplate">
+      <div style="text-align: center">
+        <h1><b>Attestation de travail</b></h1>
+      </div>
+
+
+
+      <br><br>
+      <br><br>
+
+      
+
+
+        <p><b>
+
+          Nous soussignés société « DACIA Maroc » S.A, au capital de 100.000 DH et sise au 44, Bd Khalid Ibnou Al
+          oualid, Ain Sebaa Casablanca.
+
+          <br> <br>
+          Attestons par la présente que M./Mme. {{service.user.Nom}} {{service.user.Prenom}}, titulaire du certificat
+          d’immatriculation N° {{service.user.Marticule}} et immatriculé à la CNSS sous le N° {{service.user.cnss}} et
+          la carte d'indentité national N° {{service.user.cin}} a travaillé au sien de notre société en qualité de
+          {{service.post.libelle}} depuis {{service.employepost.datedebut}}.
+          <br><br>La présente attestation est délivrée à l’intéressé sur sa demande pour servir et valoir ce que de
+          droit.
+
+
+          <br> <br></b>
+        </p>
+        <div class="text-right"> A FES, LE 16/09/2009</div>
+        <br>
+        <div class="text-right"> La Direction </div>
+
+
+
+
+
+      </ng-container>
+      <ng-template #elseTemplate>
+        <div style="text-align: center"> <button [routerLink]="['/auth']" class="btn peach-gradient">Connectez-Vous</button>   </div>  </ng-template>
+ 
+        </div>
+
+  </div>    <div class="col-2"></div>
+</div>
+</div>
+<div class="actions">
+  <button class="export-button btn aqua-gradient" (click)="pdfDownload()">Imprimer</button>
+</div>

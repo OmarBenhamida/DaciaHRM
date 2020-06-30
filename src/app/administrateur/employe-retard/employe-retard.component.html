@@ -1,0 +1,102 @@
+<!-- Default form register -->
+
+<div class="row">
+    <div class="col-4">
+      <br><br><br>
+      <form ngForm="form" class="text-center ">
+  
+        <p class="h4 mb-4">Gestion des Retards Des Employés</p>
+        <div class="form-row mb-4">
+          <div class="col">
+            <!-- First name -->
+          <select class="browser-default custom-select" [(ngModel)]="service.retard.idemploye" name="idemploye">
+            <option selected>Employé</option>
+            <option *ngFor="let items of uow.employes" [value]="items.id">{{ items.Nom }} {{ items.Prenom }}</option>
+            
+          </select>
+          
+</div>
+<div class="col">
+    <!-- First name -->
+    <input type="text" [(ngModel)]="service.retard.idretard" name="idretard" class="form-control" placeholder="Identifiant De retard"
+      [value]="idretard">
+  </div>
+
+          
+  
+        </div>
+  
+   
+        <div class="form-row mb-4">
+          
+       
+          </div>
+  
+      
+  
+  
+        <div class="form-row mb-4">
+          <div class="col">
+            <button mdbBtn color="info" block="true" class="my-4" (click)="submit()" type="submit">Ajouter</button>
+          </div>
+          <div class="col">
+            <button mdbBtn color="success" block="true" class="my-4" (click)="modifier()" type="submit">Editer</button>
+          </div>
+  
+        </div>
+  
+        <div class="form-row mb-4">
+  
+  
+          <div class="col">
+            <button mdbBtn color="warning" block="true" class="my-4" (click)="search(service.retard.idemploye)">Recherche
+              ID</button>
+          </div>
+  
+          <div class="col">
+            <button mdbBtn color="danger" block="true" class="my-4" (click)="supprimer()" type="submit">Supprimer</button>
+          </div>
+  
+      
+  
+        </div>
+        
+  
+  
+  
+  
+      </form>
+  
+  
+    </div>
+  
+  
+    <div class="col-8">
+      <br> <br>
+  
+      <table class="table table-striped " >
+        <th class="table-active" scope="col">ID</th>
+        <th class="table-active" scope="col">ID_Employe</th>
+        <th class="table-active" scope="col">ID_Retard</th>
+
+   
+
+
+
+        <!-- <th class="table-active" scope="col">Enfant</th> -->
+        <tr class="table-striped" *ngFor="let item of service.retards"   (click)="filldata(item)">
+          <td>{{item.id}}</td>
+          <td>{{item.idemploye}}</td>
+          <td>{{item.idretard}}</td>
+          
+
+          <!-- <td>{{item.nbrEnfant}}</td> -->
+          
+  
+        </tr>
+  
+      </table>
+  
+  
+    </div>
+  </div>

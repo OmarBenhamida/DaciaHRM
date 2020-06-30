@@ -1,0 +1,170 @@
+<!-- <p>etat-fp works!</p>
+
+
+<pre>
+
+</pre>
+<p>retard : {{o.abs * 8 * o.post.salaireHoraire }} </p>
+<p>absnece : {{o.rts * 54  }} </p>
+<p>enfatn : {{o.employe.nbrEnfant * 200  }} </p>
+<p>total : {{ o.post.salaireHoraire}} </p> -->
+<br><br>
+<div   id="printer">
+  
+<div style="margin-top: 1rem;" class="row">
+  <br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <!-- <div class="col-1"></div> -->
+    <div class="col-11">
+      <table class="tg" style="table-layout: auto ; width: 600px">
+    <colgroup>
+    <col style="width: 218px">
+    <col style="width: 225px">
+    <col style="width: 213px">
+    <col style="width: 163px">
+    </colgroup>
+    <thead>
+      <tr>
+        <th class="tg-0pky" colspan="2" rowspan="6"><img src="../../../../assets/img/logo.png"></th>
+        <th class="tg-0pky" colspan="2" rowspan="3">Periode De Paie</th>
+      </tr>
+      <tr>
+      </tr>
+      <tr>
+      </tr>
+      <tr>
+        <td class="tg-0pky" colspan="2" rowspan="3">Mode Paiement : Virement Bancaire</td>
+      </tr>
+      <tr>
+      </tr>
+      <tr>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-0pky">Société : </td>
+        <td class="tg-0pky">Dacia Maroc</td>
+        <td class="tg-0pky">Employe : </td>
+        <td class="tg-0pky">{{o.employe.Nom}} {{o.employe.Prenom}}</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">Adresse</td>
+        <td class="tg-0pky">155 tanger malabata</td>
+        <td class="tg-0pky">Cin</td>
+        <td class="tg-0pky">{{o.employe.cin}}</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">N°Registre Comerce</td>
+        <td class="tg-0pky">A845622</td>
+        <td class="tg-0pky">Matricule</td>
+        <td class="tg-0pky">{{o.employe.Marticule}}</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">Patente</td>
+        <td class="tg-0pky">951234</td>
+        <td class="tg-0pky">Date Embauche</td>
+        <td class="tg-0pky">{{o.employe.dateEmbauche}}</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">Forme</td>
+        <td class="tg-0pky">S.A</td>
+        <td class="tg-0pky">Sexe</td>
+        <td class="tg-0pky">{{o.employe.sexe}}</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">Post Employé :</td>
+        <td class="tg-0pky">{{o.post.libelle}}</td>
+        <td class="tg-0pky">CNSS</td>
+        <td class="tg-0pky">{{o.employe.cnss}}</td>
+      </tr>
+      <tr>
+        <td class="tg-7btt" colspan="4">Bulletin de paie</td>
+      </tr>
+      <tr>
+        <td class="tg-6ic8" colspan="3">Salaire Brut : </td>
+        <td class="tg-0pky">{{ o.post.salaireHoraire * 208}} DH</td>
+      </tr>
+      <tr>
+        <td class="tg-7btt">Designation</td>
+        <td class="tg-7btt">Taux</td>
+        <td class="tg-7btt">Gain</td>
+        <td class="tg-7btt">Retenu</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">Cotisation SANAD</td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">200 DH</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">Cotisation Retraire</td>
+        <td class="tg-0pky">5%</td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">{{ o.post.salaireHoraire * 208 *5/100}} DH</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">IR</td>
+        <td class="tg-0pky">30%</td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">{{ o.post.salaireHoraire * 208 *30/100}} DH</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">Absence</td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">{{o.abs * 8 * o.post.salaireHoraire }} DH</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">Retard</td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">{{o.rts * o.post.salaireHoraire  }} DH</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">Allocation Familiales</td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">{{o.employe.nbrEnfant * 200  }} DH</td>
+        <td class="tg-0pky"></td>
+      </tr>
+      <tr>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">Total Gain</td>
+        <td class="tg-0pky">Total Retenu</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">{{o.employe.nbrEnfant * 200  }} DH</td>
+        <td class="tg-0pky">{{ (o.post.salaireHoraire * 208 *5/100) +200 +(o.post.salaireHoraire * 208 *30/100)+(o.abs * 8 * o.post.salaireHoraire)+(o.rts * o.post.salaireHoraire)}} DH</td>
+      </tr>
+      <tr>
+        <td class="tg-6ic8" colspan="2">Net à Payer : </td>
+        <td class="tg-0pky" colspan="2">{{ ((o.post.salaireHoraire * 208) + (o.employe.nbrEnfant * 200) - ((o.post.salaireHoraire * 208 *5/100) +200 +(o.post.salaireHoraire * 208 *30/100)+(o.abs * 8 * o.post.salaireHoraire)+(o.rts * o.post.salaireHoraire)))}} DH</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax" colspan="2">Cachet et signature de l'employeur</td>
+        <td class="tg-0lax" colspan="2">signature de l'employé</td>
+      </tr>
+      <tr>
+        <td width="20%" class="tg-0lax" colspan="2" rowspan="4"><img width="30%" src="https://1.bp.blogspot.com/-WTHIu3A6r1I/Xuq7Un6a0DI/AAAAAAABm6s/smpD_4TJ-HIJjt0D57Dzh_k9JYzSBtUgwCLcBGAsYHQ/s320/o.jpg"></td>
+        <td class="tg-0lax" colspan="2" rowspan="4"></td>
+      </tr>
+    
+      <tr>
+      </tr>
+      <tr>
+      </tr>
+      <tr>
+      </tr>
+    </tbody>
+    </table>  
+    </div>
+    
+    &nbsp;&nbsp;</div>
+
+</div>
+<br>
+
+<div class="actions">
+  <button class="btn btn-primary"  (click)="pdfDownload()">Imprimer</button>
+</div>

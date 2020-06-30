@@ -1,0 +1,212 @@
+<!-- Default form register -->
+<div style="  font-weight: bold;" class="bg-img">
+  <div class="row">
+    <div class="col-12">
+      <form ngForm="form" class="text-left ">
+        <div class="row">
+          <div class="col-6">
+
+            <p class="h4 mb-4 text-center">Gestion des employés</p>
+            <div class="form-row mb-4">
+              <div class="col">
+                <!-- First name -->
+                <label>ID : </label>
+                <input type="text" [(ngModel)]="service.employe.id" name="id" class="form-control" [value]="id"
+                  placeholder="Id">
+              </div>
+              <div class="col">
+                <label>Carte D'identité National : </label>
+                <input type="text" [(ngModel)]="service.employe.cin" name="cin" class="form-control" [value]="cin"
+                  placeholder="Cin">
+
+              </div>
+            </div>
+
+            <div class="form-row mb-4">
+              <div class="col">
+                <!-- First name -->
+                <label>Nom : </label>
+                <input type="text" [(ngModel)]="service.employe.Nom" name="Nom" class="form-control" [value]="Nom"
+                  placeholder="Nom">
+              </div>
+              <div class="col">
+                <!-- Last name --> <label>Prénom : </label>
+                <input type="text" [(ngModel)]="service.employe.Prenom" name="Prenom" class="form-control"
+                  [value]="Prenom" placeholder="Prenom">
+              </div>
+            </div>
+
+            <div class="form-row mb-4">
+              <div class="col">
+                <!-- First name -->
+                <label><b>Date Naissance : </b></label>
+                <input type="date" [(ngModel)]="service.employe.dateNaissance" name="dateNaissance" class="form-control"
+                  [value]="dateNaissance">
+              </div>
+              <div class="col">
+                <!-- Last name -->
+                <label><b>Date Embauche : </b></label>
+                <input type="date" [(ngModel)]="service.employe.dateEmbauche" name="dateEmbauche" class="form-control"
+                  [value]="dateEmbauche">
+              </div>
+            </div>
+
+            <div class="form-row mb-4">
+              <div class="col">
+                <!-- First name --> <label>Nombre D'enfant : </label>
+                <input type="text" [(ngModel)]="service.employe.nbrEnfant" name="nbrEnfant" class="form-control"
+                  [value]="nbrEnfant" placeholder="Nombre d'enfant ">
+              </div>
+              <div class="col">
+                <!-- First name --> <label>Matricule : </label>
+                <input type="text" [(ngModel)]="service.employe.Marticule" name="Marticule" class="form-control"
+                  [value]="Marticule" placeholder="Matricule ">
+              </div>
+
+            </div>
+
+            <div class="form-row mb-4">
+              <div class="col">
+                <!-- First name --> <label>Sexe : </label>
+                <select class="browser-default custom-select" [(ngModel)]="service.employe.sexe" name="sexe">
+                  <option selected>Saisir le sexe :</option>
+                  <option value="Homme">Homme</option>
+                  <option value="Femme">Femme</option>
+                </select>
+              </div>
+              <div class="col">
+                <!-- First name --> <label>Adresse : </label>
+                <input type="text" [(ngModel)]="service.employe.adresse" name="adresse" class="form-control"
+                  [value]="adresse" placeholder="Adressse ">
+              </div>
+
+            </div>
+
+            <!-- E-mail --> <label>Email : </label>
+            <input type="email" [(ngModel)]="service.employe.email" name="email" class="form-control" [value]="email"
+              placeholder="E-mail">
+            <br>
+            <!-- Password --> <label>Mot De Passe : </label>
+            <input type="password" [(ngModel)]="service.employe.passwd" name="passwd" class="form-control"
+              [value]="passwd" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+
+            <br>
+            <div class="form-row mb-4">
+              <div class="col">
+                <!-- First name -->
+                <!-- <input type="text"  name="role" class="form-control" [value]="role"
+                placeholder="Role du compte"> --> <label>Type Compte : </label>
+                <select class="browser-default custom-select" [(ngModel)]="service.employe.role" name="role">
+                  <option selected>Saisir le type du compte</option>
+                  <option [value]="1">Administrateur</option>
+                  <option [value]="2">Employés RH</option>
+                  <option [value]="3">EMployé</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <!-- Last name --> <label>N° CNSS : </label>
+                <input type="text" [(ngModel)]="service.employe.cnss" name="cnss" class="form-control" [value]="cnss"
+                  placeholder="Code CNSS">
+              </div>
+
+            </div>
+          </div>
+          <div class="col-6">
+            <br><br><br><br><br><br>
+            <div class="form-row mb-4">
+              <div class="col">
+                <button class="btn blue-gradient" block="true" (click)="submit()" type="submit"><i
+                    class="far fa-plus-square"></i> Ajouter</button>
+              </div>
+              <div class="col">
+                <button class="btn dusty-grass-gradient" block="true" (click)="modifier()" type="submit"><i
+                    class="fas fa-edit"></i> Editer</button>
+              </div>
+
+            </div>
+
+            <div class="form-row mb-4">
+
+              <div class="col">
+                <button class="btn purple-gradient" block="true" (click)="supprimer()" type="submit"><i
+                    class="fas fa-trash"></i> Supprimer</button>
+              </div>
+
+              <div class="col">
+                <button class="btn aqua-gradient" block="true" (click)="RecharcheCin(service.employe.cin)"> <i
+                    class="fab fa-searchengin"></i> Recherche By CIN</button>
+              </div>
+
+            </div>
+            <div class="form-row mb-4">
+
+
+              <div class="col">
+                <button class="btn aqua-gradient" block="true" (click)="search(service.employe.id)"><i
+                    class="fab fa-searchengin"></i> Recherche
+                  By
+                  ID</button>
+              </div>
+              <div class="col">
+                <button class="btn peach-gradient" block="true" (click)="RecharcheMatricule(service.employe.Marticule)">
+                  <i class="fab fa-searchengin"></i> Recherche By Matricule</button>
+              </div>
+            </div>
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+              src="https://seeklogo.com/images/D/dacia-logo-971F424816-seeklogo.com.png" width="50%">
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <br> <br>
+
+      <label>Liste Des Employés : </label>
+
+      <table class="tftable" border="1">
+        <tr>
+          <th class="table-active" scope="col">Cin</th>
+          <th class="table-active" scope="col">Matricule</th>
+          <th class="table-active" scope="col">Nom</th>
+          <th class="table-active" scope="col">Prenom</th>
+          <th class="table-active" scope="col">Date de Naissance</th>
+          <th class="table-active" scope="col">Date d'embauche</th>
+          <th class="table-active" scope="col">Cnss</th>
+          <th class="table-active" scope="col">Action</th>
+        </tr>
+        <tr class="table-striped" *ngFor="let item of service.employes" (click)="filldata(item)">
+          <td>{{item.cin}}</td>
+          <td>{{item.Marticule}}</td>
+          <td>{{item.Nom}}</td>
+          <td>{{item.Prenom}}</td>
+          <td>{{item.dateNaissance}}</td>
+          <td>{{item.dateEmbauche}}</td>
+          <!-- <td>{{item.nbrEnfant}}</td> -->
+          <td>{{item.cnss}}</td>
+          <td (click)="filldata2(item)"><i class="fas fa-eye"></i></td>
+
+
+        </tr>
+
+      </table>
+
+
+    </div>
+    <div class="col-1"></div>
+
+  </div>
+</div>
+
+
+
+
+
+
+<app-employe-post></app-employe-post>

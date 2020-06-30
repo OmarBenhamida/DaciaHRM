@@ -1,0 +1,179 @@
+<div class="row">
+  <div class="col-3">
+    <!-- <div >
+    <nav id="sidebarMenu" class="col-lg-3 col-lg-10 d-md-block bg-light sidebar collapse">
+      <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <span data-feather="home"></span>
+              <b> </b> <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <ul class="nav justify-content-center">
+            <li class="nav-item ">
+              <a class="nav-link" href="#">
+                <img
+                  src="https://1.bp.blogspot.com/-_Xwz89ahU6c/XtvmIYtVbUI/AAAAAAABmNI/JVmzk5jGglgyOoX94UMtPF9voPYeu0v3wCLcBGAsYHQ/s200/OmarHRM%2B2.png"
+                  width="40%" height="20%">
+              </a>
+            </li>
+          </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file"></span>
+              <b>Gestion des ordres de missions</b>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file"></span>
+              <b> Gestion des diplomes</b>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/employe']">
+              <span data-feather="file"></span>
+              <b>Gestion des employés</b>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="shopping-cart"></span>
+              <b>Gestions Des Congés</b>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="users"></span>
+              <b> Gestion des contrats</b>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="bar-chart-2"></span>
+              <b>Gestion des absences</b>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="layers"></span>
+              <b> Gestion des retards
+              </b>
+            </a>
+          </li>
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span> <b>Gestion des postes</b>
+          </span>
+          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              <b>Gestion des feuil de paie</b>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              <b>Gestion des compétences</b>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              <b>Gestion des indimnités</b>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              <b>Gestion des formation</b>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  
+</div> -->
+
+
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper " style="height: 100%;">
+      <div class="sidebar-heading justify-content-center " style="text-align: center;" [routerLink]="['/administrateur/graph']"><img
+          src="https://1.bp.blogspot.com/-_Xwz89ahU6c/XtvmIYtVbUI/AAAAAAABmNI/JVmzk5jGglgyOoX94UMtPF9voPYeu0v3wCLcBGAsYHQ/s200/OmarHRM%2B2.png"
+          width="35%" height="20%"> </div>
+      <div class="list-group list-group-flush">
+        <a [routerLink]="['/administrateur/om']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"><b>Gestion Des Ordres De Missions</b></a>
+
+        <a [routerLink]="['/administrateur/employe']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"><b>Gestion des employés</b></a>
+        <a [routerLink]="['/administrateur/conge']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"><b>Gestions Des Congés</b></a>
+        <a [routerLink]="['/administrateur/formation']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"><b>Gestion Des Formation</b></a>
+        <a [routerLink]="['/administrateur/diplomes']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"><b>Gestion Des Diplomes</b></a>
+        <a [routerLink]="['/administrateur/competence']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"><b>Gestion Des Compétences</b></a>
+        <a [routerLink]="['/administrateur/indimnite']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"><b>Gestion Des Indimnités</b></a>
+        <a [routerLink]="['/administrateur/fichepaie']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"><b>Gestion Des Fiches De Paies</b></a>
+        <a [routerLink]="['/administrateur/post']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"><b>Gestion Des Postes</b></a>
+        <a [routerLink]="['/administrateur/absence']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"><b>Gestion Des Absences</b></a>
+        <a [routerLink]="['/administrateur/reatrd']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"><b>Gestion Des Retards</b></a>
+        <a [routerLink]="['/administrateur/contrat']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"><b>Gestion Des Contrats</b></a>
+        <a [routerLink]="['/administrateur/adminattest']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action bg-light"> <b>Demande D'attestation De Travail</b></a>
+        <!-- <a  [routerLink]="['/administrateur/demandeconge']"routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light"><b>Consultation Des Demandes De Congés</b></a> -->
+
+
+      </div>
+    </div>
+
+
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+
+  </script>
+  <div class="col-9">
+    <main>
+
+
+      <router-outlet></router-outlet>
+
+    </main>
+  </div>
+</div>

@@ -1,0 +1,203 @@
+<div style="  font-weight: bold;" class="bg-img">
+  <div class="row">
+    <div class="col-12">
+      <form ngForm="form" class="text-left ">
+        <div class="row">
+          <div class="col-6">
+
+            <p class="h4 mb-4 text-center">Gestion Des Congés</p>
+            <div class="form-row mb-4">
+              <div class="col">
+                <label >ID :</label>
+
+                <input type="text" [(ngModel)]="service.conge.id" name="id" class="form-control" [value]="id"
+                  placeholder="Id">
+              </div>
+              <div class="col">
+                <!-- First name -->
+                <label >Type De Congé :</label>
+
+                <select class="browser-default custom-select" [(ngModel)]="service.conge.type" name="type">
+                  <option selected>Type de conge</option>
+                  <option value="Annuel">Annuel</option>
+                  <option value="Maladie">Maladie</option>
+                  <option value="Mariage">Mariage</option>
+                  <option value="Déces">Déces</option>
+
+
+                </select>
+
+
+              </div>
+
+            </div>
+
+            <div class="form-row mb-4">
+              <div class="col">
+                <!-- First name -->
+                <label >Employé :</label>
+
+                <select class="browser-default custom-select" [(ngModel)]="service.conge.idemploye" name="idemploye">
+                  <option selected>Employé</option>
+                  <option *ngFor="let items of uow.employes" [value]="items.id">{{ items.Nom }} {{ items.Prenom }}
+                  </option>
+
+                </select>
+
+
+              </div>
+              <div class="col">
+                <!-- First name -->
+                <label >Etat Du Congé :</label>
+
+                <select class="browser-default custom-select" [(ngModel)]="service.conge.etat" name="etat">
+                  <option selected>Etat Congé</option>
+                  <option value="Approuvé">Approuvé</option>
+                  <option value="En attente">En attente</option>
+                  <option value="refusé">refusé</option>
+
+
+                </select>
+
+
+              </div>
+
+
+
+            </div>
+
+            <div class="form-row mb-4">
+              <div class="col">
+                <!-- First name -->
+                <label><b>Date Début : </b></label>
+                <input type="date" [(ngModel)]="service.conge.datedebut" name="datedebut" class="form-control"
+                  [value]="datedebut">
+              </div>
+              <div class="col">
+                <!-- Last name -->
+                <label><b>Date Fin : </b></label>
+                <input type="date" [(ngModel)]="service.conge.datefin" name="datefin" class="form-control"
+                  [value]="datefin">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-6">
+              <br><br>
+              <div class="form-row mb-4">
+                <div class="col">
+                  <button [disabled]=" (totalConge - totalDate )<=0" class="btn blue-gradient" block="true" (click)="submit()" type="submit"><i
+                      class="far fa-plus-square"></i> Ajouter</button>
+                </div>
+                <div class="col">
+                  <button class="btn dusty-grass-gradient" block="true" (click)="modifier()" type="submit"><i
+                      class="fas fa-edit"></i> Editer</button>
+                </div>
+  
+              </div>
+  
+              <div class="form-row mb-4">
+  
+                <div class="col">
+                  <button class="btn purple-gradient" block="true" (click)="supprimer()" type="submit"><i
+                      class="fas fa-trash"></i> Supprimer</button>
+                </div>
+  
+                <div class="col">
+                  <button class="btn aqua-gradient" block="true" (click)="imprimer()"> <i
+                      class="fas fa-print"></i> Imprimer</button>
+                </div>
+  
+              </div>
+              <div class="form-row mb-4">
+  
+  
+                <div class="col">
+                  <button class="btn aqua-gradient" block="true" (click)="RecharcheDateFin()"><i
+                      class="fab fa-searchengin"></i> Recherche By
+                    Date Fin
+                   </button>
+                </div>
+               
+                <div class="col">
+                  <button class="btn peach-gradient" block="true" (click)="RecharcheDateDebut()">
+                    <i class="fab fa-searchengin"></i> Recherche By Date debut</button>
+                </div>
+
+
+              </div>
+
+              <div class="form-row mb-4">
+  
+  
+                <div class="col">
+                  <button class="btn aqua-gradient" block="true" (click)="restaurertable()"> <i
+                      class="fas fa-redo-alt"></i> &nbsp; Refresh</button>
+                </div>
+
+               
+
+                <div class="col">
+                  <button class="btn purple-gradient" block="true" (click)="selectionChange()" type="button"> <i
+                      class="fas fa-filter"></i> &nbsp; Filtrer</button>
+                </div>
+              </div>
+
+
+
+          </div>
+          
+        </div>
+      </form>
+
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+              <br> <br>
+        
+        <label>Liste Des Congés : </label>
+        
+              <table class="tftable" border="1">
+                <tr>
+                  <th class="table-active" scope="col">ID</th>
+                <th class="table-active" scope="col">Type Congé</th>
+                <th class="table-active" scope="col">Date Debut</th>
+                <th class="table-active" scope="col">Date fin</th>
+                <th class="table-active" scope="col">Nombre Jour</th>
+                <th class="table-active" scope="col">Etat</th>
+
+                <th class="table-active" scope="col">employe</th>
+                <th class="table-active" scope="col">Action</th>
+                </tr>
+                <tr class="table-striped" *ngFor="let item of t" (click)="filldata(item)">
+                  <td>{{item.id}}</td>
+                  <td>{{item.type}}</td>
+                  <td>{{item.datedebut}}</td>
+                  <td>{{item.datefin}}</td>
+                  <td>{{dateDeff(item.datedebut, item.datefin)}}</td>
+                  <td>{{item.etat}}</td>
+
+                  <td>{{item.employe.Nom}} {{item.employe.Prenom}}</td>
+                  <td (click)="filldata2(item)"><i class="fas fa-eye"></i></td>
+                </tr>
+        
+              </table>
+             
+              <br>
+              <p> <b>Le nombre de jours pris est : {{totalDate}}/{{totalConge}} , il vous reste en solde
+                {{totalConge - totalDate}} </b></p>
+        
+            </div>
+            <div class="col-1"></div>
+        
+          </div>
+        </div>
+        
+
+
+
+
+
+
+
